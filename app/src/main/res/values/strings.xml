@@ -5,4 +5,8 @@
     <string name="playerOne">John</string>
     <string name="addPoint">Add Point</string>
     <string name="playerTwo">Harry</string>
+    <string name="game_over">Game Over!</string>
+    <string name="game_over_description">Do you want to restart the game?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

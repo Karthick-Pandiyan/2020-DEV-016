@@ -13,16 +13,23 @@ import com.dev.tennisgame.utilities.GameConstant.Companion.THIRTY
 import com.dev.tennisgame.utilities.GameConstant.Companion.WON_THE_GAME
 import com.dev.tennisgame.utilities.GameConstant.Companion.illegalScore
 import com.dev.tennisgame.utilities.Score
+import com.dev.tennisgame.viewmodel.TennisGameViewModel
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
 
-class TennisGameTest {
+class TennisGameViewModelTest {
 
     private val playerOne = "John"
     private val playerTwo = "Joe"
-    private val tennisGame = TennisGame(playerOne, playerTwo)
+    private val tennisGame = TennisGameViewModel()
+
+    @Before
+    fun setUp(){
+        tennisGame.setPlayers(playerOne, playerTwo)
+    }
 
     @Rule
     @JvmField
@@ -222,7 +229,7 @@ class TennisGameTest {
 
     @Test
     fun `Given getScore function should update winner in the MutableLiveData, when any one player won the game`() {
-        val expectedResult = playerTwo
+        val expectedResult = "${playerTwo} ${WON_THE_GAME}"
 
         tennisGame.playerOneScore = Score.LOVE.value
         tennisGame.playerTwoScore = FOUR_POINT
